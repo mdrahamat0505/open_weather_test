@@ -1,4 +1,5 @@
 class WeatherModel {
+  dynamic id;
   String? condition;
   dynamic temperature;
   dynamic feelsLike;
@@ -11,6 +12,7 @@ class WeatherModel {
   String? icon;
 
   WeatherModel({
+    this.id,
     this.condition,
     this.temperature,
     this.feelsLike,
@@ -25,6 +27,7 @@ class WeatherModel {
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
+      'id': id,
       'condition': condition,
       'temperature': temperature,
       'feelsLike': feelsLike,
@@ -39,7 +42,8 @@ class WeatherModel {
     return map;
   }
 
-  WeatherModel.fromMap(Map<String, dynamic> map) {
+  WeatherModel.fromMap(Map<dynamic, dynamic> map) {
+    id = map['id'];
     condition = map['condition'];
     temperature = map['temperature'];
     feelsLike = map['feelsLike'];
@@ -55,6 +59,7 @@ class WeatherModel {
   String toJson() {
     String str = '{';
     //str += '"id" : "$id",';
+    if (id != null) str += '"id" : "$id",';
     if (condition != null) str += '"condition" : "$condition",';
 
     if (temperature != null) str += '"temperature" : "$temperature",';
@@ -79,6 +84,7 @@ class WeatherModel {
   }
 
   WeatherModel.fromJson(Map<dynamic, dynamic> map) {
+    id = (map['weather'][0]['id']);
     condition = map['weather'][0]['main'];
     temperature = (map['main']['temp']).round();
     feelsLike = (map['main']['feels_like']).round();

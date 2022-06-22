@@ -34,10 +34,15 @@ dependencies:
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   location: ^4.4.0
-  formz:
-  google_fonts:
-  intl:
-  flutter_svg:
+  formz: any
+  google_fonts: any
+  intl: any
+  flutter_svg: any
+  sqflite: any
+  connectivity_plus: any
+  path: any
+  path_provider: any
+  shared_preferences: any
 #  flutter_icons:
 
 

@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_weather_test/screens/bloc/weather_bloc.dart';
 import 'package:open_weather_test/screens/ui/weather.dart';
 
-void main() async {
+import 'dao/local_database.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  LocalDatabase();
   runApp(const MyApp());
 }
 
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
         home: Weather(),
         routes: {
-          '/weather': (context) => Weather(),
+          // '/weather': (context) => Weather(),
         },
       ),
     );
